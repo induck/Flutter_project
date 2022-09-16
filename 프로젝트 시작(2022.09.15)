@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -33,11 +33,11 @@ class Grade extends StatelessWidget {
               Container(
                 margin: EdgeInsets.fromLTRB(0,0,0,100),
                 child: Text("인혁이의 첫 프로젝트",
-                style: TextStyle(
-                  color: Color(0xffea80fc),
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                ),),
+                  style: TextStyle(
+                    color: Color(0xffea80fc),
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                  ),),
               ),
               Container(
                 width: 400,
@@ -67,12 +67,31 @@ class Grade extends StatelessWidget {
                   },
                   child: Text("로그인"),
                   style: ButtonStyle(
+                      padding: MaterialStateProperty.all<EdgeInsets>(
+                          EdgeInsets.fromLTRB(180, 30, 180, 30)
+                      ),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          )
+                      )
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 20, 0,0),
+                child: OutlinedButton(
+                  onPressed: (){
+                    
+                  },
+                  child: Text("회원가입"),
+                  style: ButtonStyle(
                     padding: MaterialStateProperty.all<EdgeInsets>(
-                      EdgeInsets.fromLTRB(180, 30, 180, 30)
+                      EdgeInsets.fromLTRB(175, 30, 175, 30)
                     ),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
+                        borderRadius: BorderRadius.circular(18.0)
                       )
                     )
                   ),
@@ -84,4 +103,4 @@ class Grade extends StatelessWidget {
       ),
     );
   }
-  }
+}
