@@ -31,10 +31,10 @@ class Grade extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                margin: EdgeInsets.fromLTRB(0,0,0,100),
-                child: Text("인혁이의 첫 프로젝트",
+                margin: EdgeInsets.fromLTRB(0,60,0,100),
+                child: Text("CHOCOCHI",
                   style: TextStyle(
-                    color: Color(0xffea80fc),
+                    color: Color(0xff000000),
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
                   ),),
@@ -82,18 +82,18 @@ class Grade extends StatelessWidget {
                 margin: EdgeInsets.fromLTRB(0, 20, 0,0),
                 child: OutlinedButton(
                   onPressed: (){
-                    
+
                   },
                   child: Text("회원가입"),
                   style: ButtonStyle(
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                      EdgeInsets.fromLTRB(175, 30, 175, 30)
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0)
+                      padding: MaterialStateProperty.all<EdgeInsets>(
+                          EdgeInsets.fromLTRB(175, 30, 175, 30)
+                      ),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0)
+                          )
                       )
-                    )
                   ),
                 ),
               )
