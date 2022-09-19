@@ -128,12 +128,16 @@ class SecondRoute extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         items:[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '홈',
+            icon: Icon(Icons.chat),
+            label: 'Chat',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: '홈',
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.call),
+            label: 'Call',
           ),
         ],
       ),
