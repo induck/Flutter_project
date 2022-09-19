@@ -64,6 +64,10 @@ class Grade extends StatelessWidget {
                 margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
                 child: OutlinedButton(
                   onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SecondRoute()),
+                    );
                   },
                   child: Text("로그인"),
                   style: ButtonStyle(
@@ -100,6 +104,38 @@ class Grade extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class SecondRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("CHOCOCHI"),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            //Navigator.pop(context);
+          },
+          child: Text('Go back!'),
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items:[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: '홈',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: '홈',
+          ),
+        ],
       ),
     );
   }
