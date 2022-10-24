@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:project3/screen/detail_screen.dart';
 
 class SecondScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             onPressed: (){},
@@ -12,59 +14,90 @@ class SecondScreen extends StatelessWidget{
           )
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children:[
-            UserAccountsDrawerHeader(
-              accountName: Text("인혁"),
-              accountEmail: Text("rucy0199@gmail.com"),
-              currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.white,
-                backgroundImage: AssetImage('assets/pig.jpg'),
-              ),
-              otherAccountsPictures: [
-                CircleAvatar(
-                  backgroundColor: Colors.white,
-                  backgroundImage: AssetImage('assets/pig2.jpg'),
-                )
-              ],
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.home,
-                color: Colors.grey[850],
-              ),
-              title: Text('Home'),
-              onTap: (){
-
-              },
-              trailing: Icon(Icons.add),
-            )
-          ],
-        ),
-      ),
       body: Center(
-        child: Text(
-            sectionAnswer: '안녕하세요항아아아'
+        child: MaterialApp(
+          home: NavigationExample(),
         ),
       ),
     );
   }
 }
 
-class Section extends StatelessWidget{
-  final String sectionAnswer;
 
-  Section({
-    required this.sectionAnswer
-  });
+class NavigationExample extends StatefulWidget {
+  const NavigationExample({super.key});
+
   @override
-  Widget build(BuildContext context){
+  State<NavigationExample> createState() => _NavigationExampleState();
+}
+
+class _NavigationExampleState extends State<NavigationExample> {
+  int currentPageIndex = 2;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(sectionAnswer),
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
+        selectedIndex: currentPageIndex,
+        destinations: const <Widget>[
+          NavigationDestination(
+            selectedIcon: Icon(Icons.question_answer),
+            icon: Icon(Icons.question_answer_outlined),
+            label: 'message',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.cast_connected),
+            icon: Icon(Icons.cast_connected_outlined),
+            label: 'Voice Server',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.article),
+            icon: Icon(Icons.article_outlined),
+            label: 'List',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.person),
+            icon: Icon(Icons.perm_identity),
+            label: 'Saved',
+          ),
+        ],
       ),
+      body: <Widget>[
+        Container(
+          alignment: Alignment.center,
+          child: const Text('Page 1'),
+        ),
+        Container(
+          alignment: Alignment.center,
+          child: const Text('Page 2'),
+        ),
+        Container(
+          alignment: Alignment.center,
+          child: HomeScreen(),
+        ),
+        Container(
+          alignment: Alignment.center,
+          child: const Text('Page 4'),
+        ),
+        Container(
+          alignment: Alignment.center,
+          child: const Text('Page 5'),
+        ),
+      ][currentPageIndex],
     );
   }
 }
+
+
+
+
