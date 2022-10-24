@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project3/screen/detail_screen.dart';
+import 'package:index/screen/detail_screen.dart';
 
 class SecondScreen extends StatelessWidget{
   @override
@@ -68,18 +68,18 @@ class _NavigationExampleState extends State<NavigationExample> {
           NavigationDestination(
             selectedIcon: Icon(Icons.person),
             icon: Icon(Icons.perm_identity),
-            label: 'Saved',
+            label: 'My',
           ),
         ],
       ),
       body: <Widget>[
         Container(
           alignment: Alignment.center,
-          child: const Text('Page 1'),
+          child: MessageScreen(),
         ),
         Container(
           alignment: Alignment.center,
-          child: const Text('Page 2'),
+          child: VoiceServerScreen(),
         ),
         Container(
           alignment: Alignment.center,
@@ -87,17 +87,16 @@ class _NavigationExampleState extends State<NavigationExample> {
         ),
         Container(
           alignment: Alignment.center,
-          child: const Text('Page 4'),
+          child: ListScreen(),
         ),
         Container(
           alignment: Alignment.center,
-          child: const Text('Page 5'),
+          child:MyScreen(),
         ),
       ][currentPageIndex],
     );
   }
 }
-
 
 
 
