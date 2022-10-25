@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/screen/first_screen.dart';
+import 'package:index/screen/first_screen.dart';
+import 'package:index/screen/the_first_screen.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget{
@@ -8,7 +9,7 @@ class MyApp extends StatelessWidget{
     return MaterialApp(
       title: 'chocochi',
       debugShowCheckedModeBanner: false,
-      home: FirstScreen(),
+      home: SplashScreen(),
     );
   }
 }
