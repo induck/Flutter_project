@@ -71,7 +71,7 @@ class ListScreen extends StatelessWidget{
     return Scaffold(
       body: Center(
         child: Text(
-          "단어 리스트"
+            "단어 리스트"
         ),
       ),
     );
