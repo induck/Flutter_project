@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:index/screen/second_screen.dart';
-import 'package:index/screen/detail_screen.dart';
+import 'package:project3/screen/second_screen.dart';
+import 'package:project3/screen/detail_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:index/screen/loginscreen.dart';
+import 'package:project3/screen/loginscreen.dart';
 
 class SplashScreen extends StatefulWidget{
   @override
@@ -22,7 +22,9 @@ class _SplashScreenState extends State<SplashScreen> {
       if (isLogin) {
         Navigator.of(context).pushReplacement(MaterialPageRoute(builder:
             (context) => SecondScreen()));
-      };
+      } else {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>LoginScreen()));
+      }
     });
   }
 
@@ -41,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('SplashScreen 로그인 구현', style: TextStyle(fontSize: 40),)
+            Image.network('https://i.postimg.cc/cJGVbF0x/1583463522726.png',),
           ],
         ),
       ),
