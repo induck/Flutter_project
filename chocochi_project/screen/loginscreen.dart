@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:project3/screen/second_screen.dart';
+import 'package:untitled5/screen/second_screen.dart';
 
 
 
@@ -23,7 +23,7 @@ class LoginScreen extends StatelessWidget{
             onPressed: (){
               setLogin().then((_){
                 Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => SecondScreen() )
+                    MaterialPageRoute(builder: (context) => SecondScreen() )
                 );
               });
             },
