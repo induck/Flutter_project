@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project3/screen/detail_screen.dart';
+import 'package:untitled5/screen/detail_screen.dart';
 
 class SecondScreen extends StatelessWidget{
   @override
@@ -97,4 +97,3 @@ class _NavigationExampleState extends State<NavigationExample> {
     );
   }
 }
-
