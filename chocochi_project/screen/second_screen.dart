@@ -1,99 +1,52 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
+import 'package:untitled5/screen/second_screen.dart';
 import 'package:untitled5/screen/detail_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:untitled5/screen/loginscreen.dart';
 
-class SecondScreen extends StatelessWidget{
+class SplashScreen extends StatefulWidget{
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  Future<bool> checkLogin() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isLogin = prefs.getBool('isLogin') ?? false;
+    return isLogin;
+  }
+
+  void moveScreen() async {
+    await checkLogin().then((isLogin) {
+      if (isLogin) {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(builder:
+            (context) => SecondScreen()));
+      } else {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>LoginScreen()));
+      }
+    });
+  }
+
+
+  @override
+  void initState(){
+    super.initState();
+    Timer(Duration(seconds: 2),(){
+      moveScreen();
+    });
+  }
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            onPressed: (){},
-            icon: Icon(Icons.search),
-          )
-        ],
-      ),
       body: Center(
-        child: MaterialApp(
-          home: NavigationExample(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.network('https://i.postimg.cc/cJGVbF0x/1583463522726.png',),
+          ],
         ),
       ),
-    );
-  }
-}
-
-
-class NavigationExample extends StatefulWidget {
-  const NavigationExample({super.key});
-
-  @override
-  State<NavigationExample> createState() => _NavigationExampleState();
-}
-
-class _NavigationExampleState extends State<NavigationExample> {
-  int currentPageIndex = 2;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
-        selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
-          NavigationDestination(
-            selectedIcon: Icon(Icons.question_answer),
-            icon: Icon(Icons.question_answer_outlined),
-            label: 'message',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.cast_connected),
-            icon: Icon(Icons.cast_connected_outlined),
-            label: 'Voice Server',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.home_outlined),
-            label: 'Home',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.article),
-            icon: Icon(Icons.article_outlined),
-            label: 'List',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.person),
-            icon: Icon(Icons.perm_identity),
-            label: 'My',
-          ),
-        ],
-      ),
-      body: <Widget>[
-        Container(
-          alignment: Alignment.center,
-          child: MessageScreen(),
-        ),
-        Container(
-          alignment: Alignment.center,
-          child: VoiceServerScreen(),
-        ),
-        Container(
-          alignment: Alignment.center,
-          child: HomeScreen(),
-        ),
-        Container(
-          alignment: Alignment.center,
-          child: ListScreen(),
-        ),
-        Container(
-          alignment: Alignment.center,
-          child:MyScreen(),
-        ),
-      ][currentPageIndex],
     );
   }
 }
