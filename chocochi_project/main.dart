@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:index/screen/first_screen.dart';
-import 'package:index/screen/the_first_screen.dart';
+import 'package:untitled5/screen/first_screen.dart';
+import 'package:untitled5/screen/the_first_screen.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget{
