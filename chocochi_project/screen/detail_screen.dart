@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project3/screen/detail_screen_1.dart';
+import 'package:untitled5/screen/detail_screen_1.dart';
 
 
 class MessageScreen extends StatelessWidget{
